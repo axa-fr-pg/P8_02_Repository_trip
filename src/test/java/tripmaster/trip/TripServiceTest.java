@@ -52,7 +52,7 @@ public class TripServiceTest {
 		VisitedLocationData visitedLocation = new VisitedLocationData(user.getUserId(), location, new Date());
 		user.addToVisitedLocations(visitedLocation);
 		List<AttractionNearby> nearbyAttractions = new ArrayList<>();
-		AttractionData attraction = new AttractionData("", "", "", 0, 0); 
+		AttractionData attraction = new AttractionData(new UUID(0,0), "", "", "", 0, 0); 
 		AttractionNearby attractionNearby = new AttractionNearby(attraction, user, 0);
 		nearbyAttractions.add(attractionNearby);
 		// MOCK getPrice
@@ -107,7 +107,7 @@ public class TripServiceTest {
 		VisitedLocationData visitedLocation = new VisitedLocationData(user.getUserId(), location, new Date());
 		user.addToVisitedLocations(visitedLocation);
 		List<AttractionNearby> nearbyAttractions = new ArrayList<>();
-		AttractionData attraction = new AttractionData("", "", "", 0, 0); 
+		AttractionData attraction = new AttractionData(new UUID(0,0), "", "", "", 0, 0); 
 		AttractionNearby attractionNearby = new AttractionNearby(attraction, user, 0);
 		nearbyAttractions.add(attractionNearby);
 		// MOCK getPrice
