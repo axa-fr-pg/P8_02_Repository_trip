@@ -21,7 +21,7 @@ public class TripController {
 
 	@GetMapping("/calculateProposals")
 	public List<ProviderData> calculateProposals(@RequestBody ProposalForm proposalForm) {
-		logger.debug("calculateProposals for User " + proposalForm.user.getUserName() 
+		logger.debug("calculateProposals for User " + proposalForm.user.userName 
 			+ " with Attraction list of size " + proposalForm.attractions.size()
 			+ " and " + proposalForm.cumulativeRewardPoints + "reward points");
 		return tripService.calculateProposals(proposalForm.user, proposalForm.attractions, proposalForm.cumulativeRewardPoints);

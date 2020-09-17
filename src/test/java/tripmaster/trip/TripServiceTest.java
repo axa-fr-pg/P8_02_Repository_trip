@@ -47,9 +47,9 @@ public class TripServiceTest {
 		userPreferences.setNumberOfAdults(adults);
 		userPreferences.setNumberOfChildren(children);
 		userPreferences.setTripDuration(duration);
-		user.setUserPreferences(userPreferences);
+		user.userPreferences = userPreferences;
 		LocationData location = new LocationData(0, 0);
-		VisitedLocationData visitedLocation = new VisitedLocationData(user.getUserId(), location, new Date());
+		VisitedLocationData visitedLocation = new VisitedLocationData(user.userId, location, new Date());
 		user.addToVisitedLocations(visitedLocation);
 		List<AttractionNearby> nearbyAttractions = new ArrayList<>();
 		AttractionData attraction = new AttractionData(new UUID(0,0), "", "", "", 0, 0); 
@@ -102,9 +102,9 @@ public class TripServiceTest {
 		userPreferences.setNumberOfAdults(adults);
 		userPreferences.setNumberOfChildren(children);
 		userPreferences.setTripDuration(duration);
-		user.setUserPreferences(userPreferences);
+		user.userPreferences = userPreferences;
 		LocationData location = new LocationData(0, 0);
-		VisitedLocationData visitedLocation = new VisitedLocationData(user.getUserId(), location, new Date());
+		VisitedLocationData visitedLocation = new VisitedLocationData(user.userId, location, new Date());
 		user.addToVisitedLocations(visitedLocation);
 		List<AttractionNearby> nearbyAttractions = new ArrayList<>();
 		AttractionData attraction = new AttractionData(new UUID(0,0), "", "", "", 0, 0); 

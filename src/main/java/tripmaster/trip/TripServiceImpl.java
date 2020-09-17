@@ -22,16 +22,16 @@ public class TripServiceImpl implements TripService {
 	private Logger logger = LoggerFactory.getLogger(TripServiceImpl.class);
 	@Override
 	public List<ProviderData> calculateProposals(User user, List<AttractionNearby> attractions, int cumulativeRewardPoints) {
-		logger.debug("calculateProposals userName = " + user.getUserName() 
+		logger.debug("calculateProposals userName = " + user.userName 
 			+ " and attractionList of size " + attractions.size()
 			+ " and rewardPoints = cumulativeRewardPoints");
 		List<ProviderData> providers = new ArrayList<ProviderData>();
 		for (AttractionNearby a : attractions) {
 			List<Provider> proposals = tripPricer.getPrice(
 					TRIP_PRICER_KEY, a.id, 
-					user.getUserPreferences().getNumberOfAdults(), 
-					user.getUserPreferences().getNumberOfChildren(), 
-					user.getUserPreferences().getTripDuration(), 
+					user.userPreferences.getNumberOfAdults(), 
+					user.userPreferences.getNumberOfChildren(), 
+					user.userPreferences.getTripDuration(), 
 					cumulativeRewardPoints);
 			for (Provider provider : proposals) {
 				providers.add(newProviderData(provider));
