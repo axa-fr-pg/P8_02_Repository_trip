@@ -41,9 +41,9 @@ public class TripServiceImpl implements TripService {
 		for (AttractionNearby a : attractions) {
 			List<Provider> proposals = tripPricer.getPrice(
 					TRIP_PRICER_KEY, a.id, 
-					user.userPreferences.getNumberOfAdults(), 
-					user.userPreferences.getNumberOfChildren(), 
-					user.userPreferences.getTripDuration(), 
+					user.userPreferences.numberOfAdults, 
+					user.userPreferences.numberOfChildren, 
+					user.userPreferences.tripDuration, 
 					cumulativeRewardPoints);
 			for (Provider provider : proposals) {
 				providers.add(newProviderData(provider));

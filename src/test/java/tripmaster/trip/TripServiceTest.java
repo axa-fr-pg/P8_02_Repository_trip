@@ -44,9 +44,9 @@ public class TripServiceTest {
 		int children = 3;
 		int duration = 4;
 		UserPreferences userPreferences = new UserPreferences();
-		userPreferences.setNumberOfAdults(adults);
-		userPreferences.setNumberOfChildren(children);
-		userPreferences.setTripDuration(duration);
+		userPreferences.numberOfAdults = adults;
+		userPreferences.numberOfChildren = children;
+		userPreferences.tripDuration = duration;
 		user.userPreferences = userPreferences;
 		LocationData location = new LocationData(0, 0);
 		VisitedLocationData visitedLocation = new VisitedLocationData(user.userId, location, new Date());
@@ -79,7 +79,7 @@ public class TripServiceTest {
 				.thenReturn(givenProvidersDouble);
 		// WHEN
 		List<ProviderData> duration4Providers = tripService.calculateProposals(user, nearbyAttractions, 0);
-		userPreferences.setTripDuration(2*duration);
+		userPreferences.tripDuration = 2 *duration;
 		List<ProviderData> duration8Providers = tripService.calculateProposals(user, nearbyAttractions, 0);
 		// THEN
 		assertNotNull(duration4Providers);
@@ -99,9 +99,9 @@ public class TripServiceTest {
 		int children = 1;
 		int duration = 3;
 		UserPreferences userPreferences = new UserPreferences();
-		userPreferences.setNumberOfAdults(adults);
-		userPreferences.setNumberOfChildren(children);
-		userPreferences.setTripDuration(duration);
+		userPreferences.numberOfAdults = adults;
+		userPreferences.numberOfChildren = children;
+		userPreferences.tripDuration = duration;
 		user.userPreferences = userPreferences;
 		LocationData location = new LocationData(0, 0);
 		VisitedLocationData visitedLocation = new VisitedLocationData(user.userId, location, new Date());
@@ -134,7 +134,7 @@ public class TripServiceTest {
 				.thenReturn(givenProvidersDouble);
 		// WHEN
 		List<ProviderData> providers1Child = tripService.calculateProposals(user, nearbyAttractions, 0);
-		userPreferences.setNumberOfChildren(2*children);
+		userPreferences.tripDuration =  2 * children;
 		List<ProviderData> providers2Children = tripService.calculateProposals(user, nearbyAttractions, 0);
 		// THEN
 		assertNotNull(providers1Child);
