@@ -134,7 +134,7 @@ public class TripServiceTest {
 				.thenReturn(givenProvidersDouble);
 		// WHEN
 		List<ProviderData> providers1Child = tripService.calculateProposals(user, nearbyAttractions, 0);
-		userPreferences.tripDuration =  2 * children;
+		userPreferences.numberOfChildren =  2 * children;
 		List<ProviderData> providers2Children = tripService.calculateProposals(user, nearbyAttractions, 0);
 		// THEN
 		assertNotNull(providers1Child);
