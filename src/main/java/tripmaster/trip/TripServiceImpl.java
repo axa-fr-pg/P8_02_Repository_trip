@@ -14,12 +14,24 @@ import tripmaster.common.attraction.AttractionNearby;
 import tripmaster.common.trip.ProviderData;
 import tripmaster.common.user.User;
 
+/**
+ * Class for trip services. Implements TripService interface.
+ * @see tripmaster.trip.TripService
+ */
 @Service
 public class TripServiceImpl implements TripService {
 	
 	@Autowired private TripPricer tripPricer;	
 	
 	private Logger logger = LoggerFactory.getLogger(TripServiceImpl.class);
+	
+	/**
+	 * Gets the proposed trips for a given user, attractions and reward points combination.
+	 * @param user for whom the proposals shall be computed (based on his preferences).
+	 * @param attractions the list of AttractionNearby to be parsed for the trip proposals.
+	 * @param cumulativeRewardPoints the number of reward points to be taken into account for pricing.
+	 * @return List of ProviderData proposed for the user (name, price and id).
+	 */
 	@Override
 	public List<ProviderData> calculateProposals(User user, List<AttractionNearby> attractions, int cumulativeRewardPoints) {
 		logger.debug("calculateProposals userName = " + user.userName 
@@ -40,6 +52,7 @@ public class TripServiceImpl implements TripService {
 		return providers;
 	}
 	
+	// data conversion helper
 	private ProviderData newProviderData(Provider provider) {
 		return new ProviderData(provider.name, provider.price, provider.tripId);
 	}

@@ -12,13 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 import tripmaster.common.trip.ProposalForm;
 import tripmaster.common.trip.ProviderData;
 
-
+/**
+ * API class for trip methods
+ */
 @RestController
 public class TripController {
 
 	private Logger logger = LoggerFactory.getLogger(TripController.class);
 	@Autowired private TripService tripService;
 
+	/**
+	 * Gets the proposed trips for a given user, attractions and reward points combination.
+	 * @param proposalForm the structure containing user, attractions and reward points.
+	 * @return List of ProviderData proposed for the user (name, price and id).
+	 */
 	@GetMapping("/calculateProposals")
 	public List<ProviderData> calculateProposals(@RequestBody ProposalForm proposalForm) {
 		logger.debug("calculateProposals for User " + proposalForm.user.userName 
